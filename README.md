@@ -1,4 +1,4 @@
-# nft_marketplace
+# CSE Learning Hub
 Our platform is designed to provide valuable resources for CS/IT degree students, including access to GTU previous years paper nad DE reports.
 We understand that these material can be incridibly helpful in furthering your education, and we are here to make that process as seamless as possible.
 
