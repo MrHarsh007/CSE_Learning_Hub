@@ -1,7 +1,11 @@
 # nft_marketplace
-Nft market place concept app with cool animation. Non Fungible Tokens (NFTs) are digital assets that represent objects like art, collectible, and in-game items. They are traded online, often with cryptocurrency, and are generally encoded within smart contracts on a blockchain
-## Feel free to contribute 
-## NFt marketplace App  
+Our platform is designed to provide valuable resources for CS/IT degree students, including access to GTU previous years paper nad DE reports.
+We understand that these material can be incridibly helpful in furthering your education, and we are here to make that process as seamless as possible.
+
+## User can access material and syllabus.
+## User can access previous year GTU papers.
+## User can access sample DE Report.
+## User can also email us to add him/her material to our app.
 
 
 
@@ -11,7 +15,7 @@ Nft market place concept app with cool animation. Non Fungible Tokens (NFTs) are
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://user-images.githubusercontent.com/74703957/221352288-6a474faa-10c3-4eee-89f3-dcf6b6ff4887.jpg)|![](https://user-images.githubusercontent.com/74703957/221352312-bd25b870-e487-4cce-afd7-faa55d485026.jpg)|![](https://user-images.githubusercontent.com/74703957/221352337-954a4700-c706-4272-bf39-450659ead65d.jpg)|![](https://user-images.githubusercontent.com/74703957/221352360-0f5d1085-81f8-4370-9143-0f1f07dbc201.jpg)|
 5     |    6                |  7   |  8
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+
 ![](https://user-images.githubusercontent.com/74703957/221352379-80d96b60-dbf4-4030-858f-f18b2ea875ad.jpg)|![](https://user-images.githubusercontent.com/74703957/221352475-bc21911e-1a25-4abf-a993-d384a60a8252.jpg)|
 
 ## Getting Started
