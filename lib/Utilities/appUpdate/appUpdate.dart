@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:ui';
 import 'package:cse_learning_hub/Pages/HomePages/HomePage.dart';
 import 'package:cse_learning_hub/Pages/splashScreen.dart';
+import 'package:cse_learning_hub/Utilities/App%20Style/app_style.dart';
 import 'package:cse_learning_hub/config.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -70,7 +71,7 @@ class AppUpdateState extends State<AppUpdate> {
   }
 
   Future verifyCode() async {
-    SerialKey = await generateUniqueCode();
+    SerialKey = (await generateUniqueCode());
     print(SerialKey);
     setState(() {});
   }
@@ -97,11 +98,11 @@ class AppUpdateState extends State<AppUpdate> {
           : (latestVersion == currentVersion)
               ? const HomePage()
               : Scaffold(
-                  backgroundColor: Colors.red.shade300,
+                  backgroundColor: kLightGreen,
                   body: AlertDialog(
                     insetPadding: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 180),
-                    backgroundColor: Colors.red.shade100,
+                        horizontal: 15, vertical: 140),
+                    backgroundColor: Colors.white,
                     icon: SizedBox(
                         height: 150,
                         width: 150,
@@ -143,12 +144,13 @@ class AppUpdateState extends State<AppUpdate> {
                             launch(downloadLink);
                           },
                           child: const Text("Download")),
-                      8.heightBox,
+                      5.heightBox,
                       ElevatedButton(
                           style: ButtonStyle(
                               backgroundColor:
                                   MaterialStateProperty.all(Colors.red[400])),
-                          onPressed: () => launch("https://wa.me/918460946542"),
+                          onPressed: () =>
+                              launch("https://www.instagram.com/hrporwal_007"),
                           child: const Text("Contact Us"))
                     ]),
                   ),

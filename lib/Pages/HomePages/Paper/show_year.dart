@@ -31,29 +31,29 @@ class _ShowYearState extends State<ShowYear> {
           floatingActionButton: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              Positioned(
-                bottom: 18,
-                child: CupertinoSwitch(
-                  value: nightMode,
-                  onChanged: (value) {
-                    setState(() {
-                      nightMode ? nightMode = false : nightMode = true;
-                      print("$nightMode");
-                    });
-                  },
-                ),
-              ),
-              const Positioned(
-                  bottom: 0,
-                  child: Text(
-                      softWrap: true,
-                      textAlign: TextAlign.center,
-                      "Click Here to Enable and Disable Night mode in PDF.")),
+              // Positioned(
+              //   bottom: 18,
+              //   child: CupertinoSwitch(
+              //     value: nightMode,
+              //     onChanged: (value) {
+              //       setState(() {
+              //         nightMode ? nightMode = false : nightMode = true;
+              //         print("$nightMode");
+              //       });
+              //     },
+              //   ),
+              // ),
+              // const Positioned(
+              //     bottom: 0,
+              //     child: Text(
+              //         softWrap: true,
+              //         textAlign: TextAlign.center,
+              //         "Click Here to Enable and Disable Night mode in PDF.")),
             ],
           ),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.miniCenterFloat,
-          appBar: const CustomAppBar(),
+          appBar: CustomAppBar(),
           body: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

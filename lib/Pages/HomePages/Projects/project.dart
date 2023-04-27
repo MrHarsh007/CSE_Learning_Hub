@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cse_learning_hub/Pages/HomePages/show_material.dart';
 import 'package:cse_learning_hub/Utilities/AlertBox.dart';
 import 'package:cse_learning_hub/Utilities/App%20Style/app_style.dart';
@@ -60,7 +61,7 @@ class _ProjectPagesState extends State<ProjectPages> {
     SizeConfig().init(context);
     return SafeArea(
         child: Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(),
       body: loading
           ? const CircularProgressIndicator(
               color: Colors.blueAccent,
@@ -93,18 +94,19 @@ class _ProjectPagesState extends State<ProjectPages> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                overflow: TextOverflow.fade,
+                              AutoSizeText(
+                                // overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.center,
                                 name,
+                                maxLines: 3,
                                 style:
-                                    kSourcesansProBold.copyWith(fontSize: 20),
+                                    kSourcesansProBold.copyWith(fontSize: 18),
                               ),
-                              Text(
+                              AutoSizeText(
                                 desc,
                                 overflow: TextOverflow.ellipsis,
                                 style: kSourcesansProMedium.copyWith(
-                                    fontWeight: FontWeight.w100, fontSize: 12),
+                                    fontWeight: FontWeight.w100, fontSize: 14),
                               ),
                               ElevatedButton(
                                 onPressed: () => Navigator.push(

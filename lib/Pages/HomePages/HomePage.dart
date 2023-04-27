@@ -1,18 +1,16 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cse_learning_hub/Pages/HomePages/Form/formPage.dart';
 import 'package:cse_learning_hub/Pages/HomePages/Paper/sem_pages.dart';
 import 'package:cse_learning_hub/Pages/HomePages/Projects/project.dart';
 import 'package:cse_learning_hub/Pages/contactUs.dart';
-
 import 'package:cse_learning_hub/Utilities/Serial Number/checkUser.dart';
 import 'package:cse_learning_hub/Utilities/Serial Number/serialGenerator.dart';
-
 import 'package:cse_learning_hub/Utilities/App%20Style/app_style.dart';
 import 'package:cse_learning_hub/Pages/HomePages/StudyMaterial/sem_pages.dart';
 import 'package:cse_learning_hub/Utilities/App%20Style/size_config.dart';
 import 'package:cse_learning_hub/Utilities/appBar.dart';
 import 'package:cse_learning_hub/Utilities/appUpdate/appUpdate.dart';
 import 'package:cse_learning_hub/config.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -106,7 +104,7 @@ class _HomePageState extends State<HomePage> {
     SizeConfig().init(context);
     return SafeArea(
       child: Scaffold(
-        appBar: const CustomAppBar(),
+        appBar: CustomAppBar(),
         body: SingleChildScrollView(
           child: Column(children: [
             const SizedBox(
@@ -115,7 +113,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(kHorizontalPadding / 1.8),
               child: SizedBox(
-                height: SizeConfig.screenHeight! / 5,
+                height: SizeConfig.screenHeight! / 4.5,
                 child: Stack(
                   children: [
                     Positioned(
@@ -125,9 +123,9 @@ class _HomePageState extends State<HomePage> {
                               borderRadius: BorderRadius.circular(20))),
                     ),
                     Positioned(
-                      height: 150,
-                      top: SizeConfig.blockSizeHorizontal! * 4.5,
-                      left: SizeConfig.blockSizeVertical! * 3.0,
+                      height: 120,
+                      top: SizeConfig.blockSizeHorizontal! * 5,
+                      left: SizeConfig.blockSizeVertical! * 2.3,
                       child: SvgPicture.asset(
                         fit: BoxFit.contain,
                         image,
@@ -145,28 +143,42 @@ class _HomePageState extends State<HomePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Hello, $name",
+                          AutoSizeText("Hello, $name",
                               softWrap: true,
-                              style: kSourcesansProBold.copyWith(
-                                fontSize: SizeConfig.blockSizeHorizontal! * 5.5,
-                              )),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              minFontSize: 18,
+                              style: kSourcesansProBold),
                           Text(
                             "Welcome to CSE\nLearning Hub",
                             style: kSourcesansProRegular.copyWith(
                                 fontSize:
                                     SizeConfig.blockSizeHorizontal! * 4.5),
                           ),
-                          Text(
-                            (!Verified)
-                                ? "SerialKey : $SerialKey"
-                                : "✅ Access Granted!",
-                            style: kSourcesansProBold.copyWith(
-                                fontWeight: FontWeight.w800,
-                                // fontStyle: FontStyle.italic,
-                                // color: Color.fromARGB(179, 162, 38, 31),
-                                color: const Color.fromARGB(255, 10, 64, 109),
-                                fontSize: 20),
-                          ),
+
+                          (!Verified)
+                              ? SelectableText(
+                                  "SerialKey : $SerialKey",
+                                  style: kSourcesansProBold.copyWith(
+                                      fontWeight: FontWeight.w800,
+                                      // fontStyle: FontStyle.italic,
+                                      // color: Color.fromARGB(179, 162, 38, 31),
+                                      color: const Color.fromARGB(
+                                          255, 10, 64, 109),
+                                      fontSize: 20),
+                                )
+                              : AutoSizeText(
+                                  "✅ Access Granted!",
+                                  maxLines: 1,
+                                  style: kSourcesansProBold.copyWith(
+                                    fontWeight: FontWeight.w700,
+                                    // fontStyle: FontStyle.italic,
+                                    // color: Color.fromARGB(179, 162, 38, 31),
+                                    color:
+                                        const Color.fromARGB(255, 10, 64, 109),
+                                  ),
+                                )
+
                           // Text(
                           //   "User Verified : $Verified",
                           //   style: kSourcesansProRegular.copyWith(
@@ -211,14 +223,18 @@ class _HomePageState extends State<HomePage> {
                               Icons.my_library_books,
                               size: 40,
                             ),
-                            Text(
+                            AutoSizeText(
                               "Study Material",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProBold.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 5),
                             ),
-                            Text(
+                            AutoSizeText(
                               "CS/IT Material",
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProRegular.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 4),
@@ -250,14 +266,18 @@ class _HomePageState extends State<HomePage> {
                               CupertinoIcons.paperplane_fill,
                               size: 40,
                             ),
-                            Text(
+                            AutoSizeText(
                               "GTU Papers",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProBold.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 5),
                             ),
-                            Text(
+                            AutoSizeText(
                               "CS/IT Papers",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProRegular.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 4),
@@ -304,14 +324,18 @@ class _HomePageState extends State<HomePage> {
                               Icons.app_registration_rounded,
                               size: 40,
                             ),
-                            Text(
+                            AutoSizeText(
                               "Registration Form",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProBold.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 5),
                             ),
-                            Text(
+                            AutoSizeText(
                               "Single Time",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProRegular.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 4),
@@ -342,14 +366,18 @@ class _HomePageState extends State<HomePage> {
                               Icons.format_align_justify_rounded,
                               size: 40,
                             ),
-                            Text(
+                            AutoSizeText(
                               "FeedBack Form",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProBold.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 5),
                             ),
-                            Text(
+                            AutoSizeText(
                               "Means Alot!",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProRegular.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 4),
@@ -367,6 +395,43 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: Container(
                       decoration: BoxDecoration(
+                          color: kLightYellow,
+                          borderRadius: BorderRadius.circular(kBorderRadius)),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 0.3 * kHorizontalPadding),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.picture_in_picture_alt_outlined,
+                              size: 40,
+                            ),
+                            AutoSizeText(
+                              "DE Projects",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: kSourcesansProBold.copyWith(
+                                  fontSize:
+                                      SizeConfig.blockSizeHorizontal! * 5),
+                            ),
+                            AutoSizeText(
+                              "Only Samples",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: kSourcesansProRegular.copyWith(
+                                  fontSize:
+                                      SizeConfig.blockSizeHorizontal! * 4),
+                            )
+                          ]),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      launch(textBookLink);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
                           color: kLightBlue,
                           borderRadius: BorderRadius.circular(kBorderRadius)),
                       padding: const EdgeInsets.symmetric(
@@ -379,14 +444,18 @@ class _HomePageState extends State<HomePage> {
                               Icons.picture_in_picture_alt_outlined,
                               size: 40,
                             ),
-                            Text(
-                              "DE Projects",
+                            AutoSizeText(
+                              "Text Book",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProBold.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 5),
                             ),
-                            Text(
-                              "Only Samples",
+                            AutoSizeText(
+                              "CS/IT Text book",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProRegular.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 4),
@@ -404,7 +473,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                          color: kLightYellow,
+                          color: kLightRed,
                           borderRadius: BorderRadius.circular(kBorderRadius)),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 0.3 * kHorizontalPadding),
@@ -416,14 +485,18 @@ class _HomePageState extends State<HomePage> {
                               CupertinoIcons.profile_circled,
                               size: 40,
                             ),
-                            Text(
+                            AutoSizeText(
                               "Contact Us",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProBold.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 5),
                             ),
-                            Text(
+                            AutoSizeText(
                               "Harsh Porwal",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProRegular.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 4),
@@ -435,7 +508,7 @@ class _HomePageState extends State<HomePage> {
                     onTap: () => shareAPK(),
                     child: Container(
                       decoration: BoxDecoration(
-                          color: kLightRed,
+                          color: kLightGreen,
                           borderRadius: BorderRadius.circular(kBorderRadius)),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 0.3 * kHorizontalPadding),
@@ -447,14 +520,18 @@ class _HomePageState extends State<HomePage> {
                               Icons.share_rounded,
                               size: 40,
                             ),
-                            Text(
+                            AutoSizeText(
                               "Share APK",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProBold.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 5),
                             ),
-                            Text(
-                              "Share With Friends",
+                            AutoSizeText(
+                              "Share With Friends ",
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
                               style: kSourcesansProRegular.copyWith(
                                   fontSize:
                                       SizeConfig.blockSizeHorizontal! * 4),

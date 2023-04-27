@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:cse_learning_hub/Pages/HomePages/HomePage.dart';
 import 'package:cse_learning_hub/Utilities/App%20Style/app_style.dart';
 import 'package:flutter/material.dart';
@@ -71,8 +70,7 @@ class _ShowMaterialState extends State<ShowMaterial> {
                                     const StadiumBorder())),
                             onPressed: () => openEmail(
                                 toEmail: EmailAddress,
-                                subject:
-                                    "Add Material TO GTU Material Application",
+                                subject: "Add Material TO CSE Learning Hub",
                                 body:
                                     "Your Name :  \nYour WhatsApp Number : \nSemester : \nSubject With Subject Code :  \nYour CollegeName :"),
                             child: const Text(

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cse_learning_hub/Pages/HomePages/HomePage.dart';
 import 'package:cse_learning_hub/Utilities/AlertBox.dart';
 import 'package:cse_learning_hub/Utilities/Serial%20Number/checkUser.dart';
@@ -11,6 +12,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../Utilities/App Style/app_style.dart';
+import 'package:flutter/services.dart';
+import 'package:platform/platform.dart';
 
 class ShowIteam extends StatefulWidget {
   final List<dynamic> data;
@@ -30,30 +33,30 @@ class _ShowIteamState extends State<ShowIteam> {
           floatingActionButton: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              Positioned(
-                bottom: 18,
-                child: CupertinoSwitch(
-                  value: nightMode,
-                  onChanged: (value) {
-                    setState(() {
-                      nightMode ? nightMode = false : nightMode = true;
-                      print("$nightMode");
-                    });
-                  },
-                ),
-              ),
-              const Positioned(
-                  bottom: 0,
-                  child: Text(
-                      softWrap: true,
-                      textAlign: TextAlign.center,
-                      "Click Here to Enable and Disable Night mode in PDF.")),
+              // Positioned(
+              //   bottom: 18,
+              //   child: CupertinoSwitch(
+              //     value: nightMode,
+              //     onChanged: (value) {
+              //       setState(() {
+              //         nightMode ? nightMode = false : nightMode = true;
+              //         print("$nightMode");
+              //       });
+              //     },
+              //   ),
+              // ),
+              // const Positioned(
+              //     bottom: 0,
+              //     child: Text(
+              //         softWrap: true,
+              //         textAlign: TextAlign.center,
+              //         "Click Here to Enable and Disable Night mode in PDF.")),
             ],
           ),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.miniCenterFloat,
 
-          appBar: const CustomAppBar(),
+          appBar: CustomAppBar(),
           body: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -85,15 +88,17 @@ class _ShowIteamState extends State<ShowIteam> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
+                            AutoSizeText(
                               sourceName,
+                              maxLines: 2,
                               textAlign: TextAlign.center,
-                              // overflow: TextOverflow.ellipsis,
+                              overflow: TextOverflow.ellipsis,
                               style: kSourcesansProBold.copyWith(
                                   fontWeight: FontWeight.bold, fontSize: 14),
                             ),
-                            Text(
+                            AutoSizeText(
                               sourceDesc,
+                              maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: kSourcesansProMedium.copyWith(
                                   fontWeight: FontWeight.w100, fontSize: 12),
@@ -114,7 +119,7 @@ class _ShowIteamState extends State<ShowIteam> {
                                                 ? ShowMaterial(
                                                     sourceMaterial:
                                                         sourceMaterial)
-                                                : NotAccess())),
+                                                : const NotAccess())),
                                     child: Text(
                                       "Material",
                                       style: kSourcesansSemiBold.copyWith(

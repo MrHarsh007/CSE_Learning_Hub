@@ -1,3 +1,4 @@
+import 'package:cse_learning_hub/Pages/HomePages/HomePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -9,12 +10,17 @@ import '../Pages/contactUs.dart';
 import 'App Style/app_style.dart';
 import 'appUpdate/appUpdate.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
 
   @override
   Size get preferredSize => const Size.fromHeight(50);
 
+  @override
+  _CustomAppBarState createState() => _CustomAppBarState();
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,29 +47,51 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             semanticLabel: ("Share"),
           ),
         ),
-
-        // IconButton(
-        //   icon:
-        // Image.asset(
-        //   "assets/menu.png",
-        //   scale: 2.7,
-        // ),
-        // onPressed: () => launch("https://www.instagram.com/hrporwal_007"),
-        // ),
         actions: [
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const SocialMediaPage()),
-              );
+          CupertinoSwitch(
+            trackColor: Colors.black,
+            value: nightMode,
+            onChanged: (value) {
+              setState(() {
+                nightMode ? nightMode = false : nightMode = true;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    duration: const Duration(milliseconds: 800),
+                    backgroundColor: const Color.fromARGB(255, 181, 209, 228),
+                    content: Row(
+                      children: const [
+                        Icon(Icons.mobile_friendly, color: Colors.black),
+                        SizedBox(width: 10),
+                        Flexible(
+                          child: Text(
+                            'Enable/Disable dark mode in PDF with this switch.',
+                            style: TextStyle(color: Colors.black),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
+                    elevation: 5,
+                  ),
+                );
+                print("$nightMode");
+              });
             },
-            child: Image.asset(
-              "assets/profile.png",
-              scale: 2,
-            ),
-          )
+          ),
+          // InkWell(
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //           builder: (context) => const SocialMediaPage()),
+          //     );
+          //   },
+          //   child: Image.asset(
+          //     "assets/profile.png",
+          //     scale: 2,
+          //   ),
+          // )
         ],
       ),
     );

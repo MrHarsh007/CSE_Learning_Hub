@@ -1,8 +1,5 @@
 import 'package:cse_learning_hub/Utilities/App%20Style/app_style.dart';
-import 'package:cse_learning_hub/Utilities/Serial%20Number/checkUser.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -15,46 +12,58 @@ class SplashScreen extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         // ignore: sort_child_properties_last
         child: Stack(children: [
-          Padding(
-            padding:
-                EdgeInsets.only(left: MediaQuery.of(context).size.width / 8),
-            child: Align(
-                alignment: Alignment.center,
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/cse.png",
-                      height: 40,
-                      width: 50,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: SizedBox(
+                      width: 60.0,
+                      height: 60.0,
+                      // decoration: BoxDecoration(
+                      //   shape: BoxShape.circle,
+                      //   // color: Colors.black,
+                      // ),
+                      child: Image.asset(
+                        "assets/cse.png",
+                        height: 40,
+                        width: 50,
+                      ),
                     ),
-                    Text(
-                      "CSE Learning Hub",
-                      style: kSourcesansProBold.copyWith(fontSize: 30),
-                    )
-                  ],
-                )),
-          ),
-          Padding(
-            padding:
-                EdgeInsets.only(bottom: MediaQuery.of(context).size.width / 8),
-            child: const Align(
-              alignment: Alignment.bottomCenter,
-              child: CircularProgressIndicator(
-                color: Colors.black,
+                  ),
+                  const SizedBox(width: 10.0),
+                  const Text(
+                    'CSE Learning Hub',
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
+            ],
+          ),
+          const Positioned(
+            bottom: 55.0,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: CircularProgressIndicator(color: Colors.black),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Text(
-                "Created By => Harsh Porwal",
-                style: kSourcesansSemiBold.copyWith(
-                    fontSize: 15, color: Colors.black54),
-              ),
-            ),
-          )
+          Positioned(
+            bottom: 16.0,
+            left: 0,
+            right: 0,
+            child: Center(
+                child: Text(
+              "Created By => Harsh Porwal",
+              style: kSourcesansSemiBold.copyWith(
+                  fontSize: 15, color: Colors.black87),
+            )),
+          ),
         ]),
         decoration: const BoxDecoration(
           gradient: LinearGradient(

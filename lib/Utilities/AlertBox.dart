@@ -1,5 +1,6 @@
 import 'package:cse_learning_hub/Pages/HomePages/HomePage.dart';
 import 'package:cse_learning_hub/Utilities/App%20Style/app_style.dart';
+import 'package:cse_learning_hub/config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -47,9 +48,8 @@ class NotAccess extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const RegistrationForm(
-                              url:
-                                  "https://docs.google.com/forms/d/e/1FAIpQLSdWOxKvlRMS8l8lRoh7761guJVDXCDxeQulswoAu8t9Uw2cWg/viewform?usp=sf_link")),
+                          builder: (context) =>
+                              const RegistrationForm(url: registrationForm)),
                     );
                   },
                   child: const Text("Register"),

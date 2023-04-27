@@ -58,7 +58,7 @@ class _PaperPagesState extends State<PaperPages> {
     SizeConfig().init(context);
     return SafeArea(
         child: Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(),
       body: loading
           ? const CircularProgressIndicator(
               color: Colors.blueAccent,

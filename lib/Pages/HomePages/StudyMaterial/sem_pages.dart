@@ -1,20 +1,14 @@
 import 'dart:async';
-
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:http/http.dart' as http;
 import 'package:cse_learning_hub/Utilities/App%20Style/app_style.dart';
-import 'package:cse_learning_hub/Pages/drawer.dart';
 import 'package:cse_learning_hub/Utilities/appBar.dart';
 import 'package:cse_learning_hub/config.dart';
-import 'package:cse_learning_hub/main.dart';
-
 import 'package:cse_learning_hub/Pages/HomePages/StudyMaterial/show_iteam_page.dart';
 import 'package:cse_learning_hub/Utilities/App%20Style/size_config.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 import 'package:velocity_x/velocity_x.dart';
 
 class SemPages extends StatefulWidget {
@@ -59,7 +53,7 @@ class _SemPagesState extends State<SemPages> {
     SizeConfig().init(context);
     return SafeArea(
         child: Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(),
       body: loading
           ? const CircularProgressIndicator(
               color: Colors.blueAccent,
@@ -117,13 +111,17 @@ class _SemPagesState extends State<SemPages> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                AutoSizeText(
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.center,
                                   name,
                                   style:
                                       kSourcesansProBold.copyWith(fontSize: 22),
                                 ),
-                                Text(
+                                AutoSizeText(
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   textAlign: TextAlign.center,
                                   desc,
                                   style: kSourcesansProRegular.copyWith(
