@@ -2,6 +2,8 @@
 Our platform is designed to provide valuable resources for CS/IT degree students, including access to GTU previous years paper nad DE reports.
 We understand that these material can be incridibly helpful in furthering your education, and we are here to make that process as seamless as possible.
 
+- --------------------------- [Sample APK Link : Click Here](https://bit.ly/CseLearningHub) ---------------------------
+
 ## User can access material and syllabus.
 ## User can access previous year GTU papers.
 ## User can access sample DE Report.
